@@ -4,7 +4,7 @@
 
 Name:		jq
 Version:	1.6
-Release:	
+Release:	1
 Summary:	Command-line JSON processor
 Group:		System/Base
 License:	MIT and ASL 2.0 and CC-BY and GPLv3
@@ -14,10 +14,7 @@ Source0:	https://github.com/stedolan/jq/releases/download/%{name}-%{version}/%{n
 BuildRequires:	flex
 BuildRequires:	bison
 BuildRequires:	pkgconfig(oniguruma)
-
-%ifnarch s390
 BuildRequires:	valgrind
-%endif
 
 
 %description
@@ -43,8 +40,6 @@ Group:		System/Libraries
 %description -n %{lib_name}
 This package contains libraries used by %{name}.
 
-
-
 %package -n %{develname}
 Summary:	Development files for %{name}
 Requires:	%{name} = %{version}-%{release}
@@ -55,37 +50,17 @@ Provides:	lib%{name}-devel = %{version}-%{release}
 %description -n %{develname}
 Development files for %{name}.
 
-
 %prep
 %setup -q
 
 %build
 %configure2_5x --disable-static
 %make_build
-# Docs already shipped in jq's tarball.
-# In order to build the manual page, it
-# is necessary to install rake, rubygem-ronn
-# and do the following steps:
-#
-# # yum install rake rubygem-ronn
-# $ cd docs/
-# $ curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
-# $ source $HOME/.rvm/scripts/rvm
-# $ bundle install
-# $ cd ..
-# $ ./configure
-# $ make real_docs
 
 %install
 %make_install
 
 find %{buildroot} -name '*.la' -delete
-
-%check
-# Valgrind used, so restrict architectures for check
-%ifarch %{ix86} x86_64
-%__make check
-%endif
 
 %files
 %{_bindir}/%{name}
