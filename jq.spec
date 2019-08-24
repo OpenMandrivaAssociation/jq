@@ -54,6 +54,7 @@ Development files for %{name}.
 %setup -q
 
 %build
+autoreconf -fi
 %configure2_5x --disable-static
 %make_build
 
