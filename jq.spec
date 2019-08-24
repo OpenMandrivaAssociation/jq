@@ -14,7 +14,7 @@ Source0:	https://github.com/stedolan/jq/releases/download/%{name}-%{version}/%{n
 BuildRequires:	flex
 BuildRequires:	bison
 BuildRequires:	pkgconfig(oniguruma)
-BuildRequires:	valgrind
+#BuildRequires:	valgrind
 
 
 %description
