@@ -8,7 +8,7 @@ Release:	3
 Summary:	Command-line JSON processor
 Group:		System/Base
 License:	MIT and ASL 2.0 and CC-BY and GPLv3
-URL:		http://stedolan.github.io/jq/
+URL:		https://stedolan.github.io/jq/
 Source0:	https://github.com/stedolan/jq/releases/download/%{name}-%{version}/%{name}-%{version}.tar.gz
 Patch0:		https://github.com/stedolan/jq/pull/2480.patch
 
