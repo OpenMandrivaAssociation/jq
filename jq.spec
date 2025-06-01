@@ -3,8 +3,8 @@
 %define develname	%mklibname jq -d
 
 Name:		jq
-Version:	1.6
-Release:	3
+Version:	1.8.0
+Release:	1
 Summary:	Command-line JSON processor
 Group:		System/Base
 License:	MIT and ASL 2.0 and CC-BY and GPLv3
@@ -67,11 +67,11 @@ find %{buildroot} -name '*.la' -delete
 %files
 %{_bindir}/%{name}
 %{_datadir}/man/man1/jq.1.*
-%{_datadir}/doc/jq/AUTHORS
-%{_datadir}/doc/jq/COPYING
-%{_datadir}/doc/jq/README
-%{_datadir}/doc/jq/README.md
-%dir %{_datadir}/doc/jq
+%doc %dir %{_docdir}/jq
+%doc %{_docdir}/jq/AUTHORS
+%doc %{_docdir}/jq/COPYING
+%doc %{_docdir}/jq/NEWS.md
+%doc %{_docdir}/jq/README.md
 
 %files -n %{lib_name}
 %{_libdir}/libjq.so.%{lib_major}
@@ -81,3 +81,4 @@ find %{buildroot} -name '*.la' -delete
 %{_includedir}/jq.h
 %{_includedir}/jv.h
 %{_libdir}/libjq.so
+%{_libdir}/pkgconfig/libjq.pc
